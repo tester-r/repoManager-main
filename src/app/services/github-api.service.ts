@@ -9,7 +9,7 @@ import { GitHubRepository, GitHubUser } from '../models/entities';
 export class GithubApiService {
   private apiUrl = 'https://api.github.com/users/';
   private headers = new HttpHeaders({
-    'Authorization': `token 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`
+    'Authorization': `token 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`
   });
 
   constructor(private http: HttpClient) { }
