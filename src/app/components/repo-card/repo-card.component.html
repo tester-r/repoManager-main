@@ -1,0 +1,62 @@
+<div *ngIf="repoModel" class="card">
+  <div class="card-body">
+    <div class="d-flex align-items-center justify-content-between mt-5">
+      <div class="lesson_name">
+        <div class="project-block light-info-bg">
+          <i class="icofont-paint"></i>
+        </div>
+        <span class="small text-muted project_name fw-bold"> {{ repoModel.full_name }} </span>
+        <h6 class="mb-0 fw-bold  fs-6  mb-2">{{ repoModel.name }}</h6>
+      </div>
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <a href="{{ repoModel.html_url}}" target="_blank" title="View on github" class="btn btn-outline-secondary"><i
+            class="fas fa-up-right-from-square text-info"></i></a>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="avatar-list avatar-list-stacked pt-2">
+        <img class="avatar rounded-circle sm" src="{{ repoModel.owner.avatar_url }}" alt="">     
+
+      </div>
+    </div>
+    <div class="row g-2 pt-4">
+      <div class="col-6">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-code-fork"></i>
+          <span class="ms-2">{{repoModel.forks_count}} Forks</span>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-code-branch"></i>
+          <span class="ms-2 text-success">Branches</span>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="d-flex align-items-center">
+          <i class="far fa-star"></i>
+          <span class="ms-2">{{ repoModel.stargazers_count }} Stars</span>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="d-flex align-items-center">
+          <i class="icofont-ui-text-chat"></i>
+          <span class="ms-2">{{ repoModel.open_issues_count }} Issues</span>
+        </div>
+      </div>
+    </div>
+    <div class="dividers-block"></div>
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <h4 class="small fw-bold mb-0">Languages</h4>
+      <span class="small light-danger-bg  p-1 rounded"><i class="fas fa-lock-open"></i> Public </span>
+    </div>   
+    <div class="d-flex flex-wrap">
+      <div *ngFor="let lang of languages" class="me-2 mb-2">
+        <mat-chip color="primary" selected>
+          <span>{{ lang.language }}</span>
+          <span class="percentage">{{ lang.percentage.toFixed(2) }}%</span>
+        </mat-chip>
+      </div>
+    </div>
+  </div>
+</div>
